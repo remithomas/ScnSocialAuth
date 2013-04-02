@@ -404,7 +404,7 @@ class HybridAuth extends AbstractAdapter implements ServiceManagerAwareInterface
     {
         $localUser = $this->instantiateLocalUser();
         $localUser->setUsername($userProfile->displayName)
-            ->setDisplayName($userProfile->firstName)
+            ->setDisplayName(utf8_decode($userProfile->firstName))
             ->setPassword(__FUNCTION__);
         $result = $this->insert($localUser, 'twitter', $userProfile);
 
